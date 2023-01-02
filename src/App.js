@@ -8,12 +8,18 @@ export default function App() {
     level: "3"
   })
 
-  function addSkill() {
-    alert("ADD SKILL CLICKED");
+  function addSkill(event) {
+    event.preventDefault()
+    console.log(form)
+    // make a copy of skills
+    const newState = [...skills]
+    // add the new skill
+    newState.push(form)
+    setSkills(newState)
   }
 
   function handleChange(event) {
-// // make a copy of current state
+//     make a copy of current state
 //     const newState = {...form}
 //     newState[event.target.name] = event.target.value
 //     setForm(newState)
@@ -30,7 +36,7 @@ setForm({...form, [event.target.name]: event.target.value})
         </article>
       ))}
       <hr />
-      <form>
+      <form onSubmit={addSkill}>
         <label>
           <span>SKILL</span>
           <input name="skill" value={form.skill} onChange={handleChange}/>
