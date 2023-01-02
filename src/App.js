@@ -13,8 +13,11 @@ export default function App() {
   }
 
   function handleChange(event) {
-    console.log(event.target)
-    console.log(event.target.value)
+// // make a copy of current state
+//     const newState = {...form}
+//     newState[event.target.name] = event.target.value
+//     setForm(newState)
+setForm({...form, [event.target.name]: event.target.value})
   }
 
   return (
