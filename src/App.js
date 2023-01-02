@@ -16,6 +16,11 @@ export default function App() {
     // add the new skill
     newState.push(form)
     setSkills(newState)
+    // reset the form
+    setForm({
+      skill: "",
+      level: "3"
+    })
   }
 
   function handleChange(event) {
